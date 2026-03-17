@@ -1,0 +1,274 @@
+/* Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Login Page */
+.login-container {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #640852;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #ad03a7;
+  border-radius: 100px;
+  font-size: 16px;
+  color: #640852;
+  background-color: #eedfeb;
+}
+
+.am{
+  padding: 5px 15px;
+}
+
+.date{
+  padding: 7px 15px;
+}
+
+.btn {
+  display: inline-block;
+  margin-left: 120px;
+  padding: 10px 5px;
+  width: 120px !important;
+  margin-top: 50px;
+  background-color: #640852;
+  color: white;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+.next{
+  border-radius: 5px;
+}
+.btn:hover {
+  background-color: #a20082;
+  border: none;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.error-message {
+  color: #a2190a;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Dashboard */
+.dashboard-container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-name {
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+.user-role {
+  background-color: #a46998;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.logout-btn {
+  background-color: #6d140a;
+  border-radius: 8px;
+}
+.dash{
+  position: relative;
+  top: 0%;
+  right: 60px;
+  margin: 3%;
+}
+
+.ma{
+  width: 180px !important;
+  height: 50px !important;
+  color: white;
+  margin-top: 50px;
+}
+
+.sa{
+  width: 200px !important;
+  height: 50px !important;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.maa{
+  width: 250px !important;
+  height: 50px !important;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-top: 50px !important; 
+}
+
+.va{
+  position: absolute;
+  top: 176px;
+}
+.logout-btn:hover {
+  background-color: #c51501;
+}
+
+/* Form Elements */
+.form-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+select.form-control {
+  height: 42px;
+}
+
+/* Tables */
+.table-container {
+  margin-top: 20px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* Attendance Calendar */
+.calendar-container {
+  margin-top: 20px;
+}
+
+.attendance-summary {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.attendance-percentage {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+/* Checkboxes */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-container input[type="checkbox"] {
+  margin-right: 10px;
+  width: 18px;
+  height: 18px;
+}
+
+/* Status Indicators */
+.status-present {
+  color: #008437;
+  font-weight: 600;
+}
+
+.status-absent {
+  color: #b21301;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .user-info {
+    margin-bottom: 10px;
+  }
+}
