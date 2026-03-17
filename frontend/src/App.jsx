@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import Login from './components/Login';
-import StudentDashboard from './components/StudentDashboard';
-import TeacherDashboard from './components/TeacherDashboard';
+import LandingPage from './components/LandingPage';
+import StudentHub from './components/StudentHub';
+import TeacherHub from './components/TeacherHub';
 import './App.css';
 
 function App() {
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
   // Check if user is already logged in (from localStorage)
   useEffect(() => {
@@ -26,50 +28,57 @@ function App() {
   const handleLogout = () => {
     setUser(null);
     localStorage.removeItem('user');
+    navigate('/');
   };
 
   return (
-    <Router>
-      <div className="app-container">
-        <Routes>
-          <Route 
-            path="/" 
-            element={
-              user ? (
-                user.role === 'student' ? (
-                  <Navigate to="/student-dashboard" />
-                ) : (
-                  <Navigate to="/teacher-dashboard" />
-                )
-              ) : (
-                <Login onLogin={handleLogin} />
-              )
-            } 
-          />
-          <Route 
-            path="/student-dashboard" 
-            element={
-              user && user.role === 'student' ? (
-                <StudentDashboard user={user} onLogout={handleLogout} />
-              ) : (
-                <Navigate to="/" />
-              )
-            } 
-          />
-          <Route 
-            path="/teacher-dashboard" 
-            element={
-              user && user.role === 'teacher' ? (
-                <TeacherDashboard user={user} onLogout={handleLogout} />
-              ) : (
-                <Navigate to="/" />
-              )
-            } 
-          />
-          <Route path="/login" element={<Login onLogin={handleLogin} />} />
-        </Routes>
-      </div>
-    </Router>
+    <Routes>
+      {/* Landing Page */}
+      <Route path="/" element={<LandingPage />} />
+
+      {/* Login */}
+      <Route
+        path="/login"
+        element={
+          user ? (
+            user.role === 'student' ? (
+              <Navigate to="/student" />
+            ) : (
+              <Navigate to="/teacher" />
+            )
+          ) : (
+            <Login onLogin={handleLogin} />
+          )
+        }
+      />
+
+      {/* Student Hub */}
+      <Route
+        path="/student"
+        element={
+          user && user.role === 'student' ? (
+            <StudentHub user={user} onLogout={handleLogout} />
+          ) : (
+            <Navigate to="/login" />
+          )
+        }
+      />
+
+      {/* Teacher Hub */}
+      <Route
+        path="/teacher"
+        element={
+          user && user.role === 'teacher' ? (
+            <TeacherHub user={user} onLogout={handleLogout} />
+          ) : (
+            <Navigate to="/login" />
+          )
+        }
+      />
+
+      {/* Catch all */}
+      <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
   );
 }
 

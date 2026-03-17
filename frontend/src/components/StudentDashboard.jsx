@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const StudentDashboard = ({ user, onLogout }) => {
+const StudentDashboard = ({ user, onLogout, isEmbedded = false }) => {
   const [subjects, setSubjects] = useState([]);
   const [selectedSubject, setSelectedSubject] = useState('');
   const [attendanceData, setAttendanceData] = useState(null);
@@ -138,24 +138,26 @@ const StudentDashboard = ({ user, onLogout }) => {
 
   return (
     <div className="dashboard-container">
-      <div className="dashboard-header">
-        <div className="user-info">
-          <span className="user-name">Welcome, {user.name}</span>
-          <span className="user-role">Student</span>
-        </div>
-        <div>
-          {/* <button 
+      {!isEmbedded && (
+        <div className="dashboard-header">
+          <div className="user-info">
+            <span className="user-name">Welcome, {user.name}</span>
+            <span className="user-role">Student</span>
+          </div>
+          <div>
+            {/* <button 
             className="btn" 
             onClick={forceRefresh}
             style={{ marginRight: '10px', backgroundColor: '#e74c3c' }}
           >
             Force Refresh Data
           </button> */}
-          <button className="btn logout-btn dash" onClick={onLogout}>
-            Logout
-          </button>
+            <button className="btn logout-btn dash" onClick={onLogout}>
+              Logout
+            </button>
+          </div>
         </div>
-      </div>
+      )}
 
       <h2>Attendance Dashboard</h2>
 

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const TeacherDashboard = ({ user, onLogout }) => {
+const TeacherDashboard = ({ user, onLogout, isEmbedded = false }) => {
   const [classes, setClasses] = useState([]);
   const [subjects, setSubjects] = useState([]);
   const [selectedClass, setSelectedClass] = useState('');
@@ -298,24 +298,26 @@ const TeacherDashboard = ({ user, onLogout }) => {
 
   return (
     <div className="dashboard-container">
-      <div className="dashboard-header">
-        <div className="user-info">
-          <span className="user-name">Welcome, {user.name}</span>
-          <span className="user-role">Teacher</span>
-        </div>
-        <div>
-          {/* <button 
+      {!isEmbedded && (
+        <div className="dashboard-header">
+          <div className="user-info">
+            <span className="user-name">Welcome, {user.name}</span>
+            <span className="user-role">Teacher</span>
+          </div>
+          <div>
+            {/* <button 
             className="btn" 
             onClick={forceRefresh}
             style={{ marginRight: '10px', backgroundColor: '#e74c3c' }}
           >
             Force Refresh Data
           </button> */}
-          <button className="btn logout-btn dash" onClick={onLogout}>
-            Logout
-          </button>
+            <button className="btn logout-btn dash" onClick={onLogout}>
+              Logout
+            </button>
+          </div>
         </div>
-      </div>
+      )}
 
       <h2 className='text-xl font-bold'>Attendance Management</h2>
 
@@ -616,43 +618,43 @@ const TeacherDashboard = ({ user, onLogout }) => {
           {attendanceRecords.length > 0 && (
             <div className="table-container">
               <h4>Attendance for {formatDate(selectedViewDate)}</h4>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>ID</th>
-                      <th>Name</th>
-                      <th>Status</th>
-                      <th>Hours</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {attendanceRecords
-                      .sort((a, b) => a.student_id - b.student_id)
-                      .map((record) => (
-                        <tr key={record.id}>
-                          <td>{record.student_id}</td>
-                          <td>{record.student_name}</td>
-                          <td>
-                            <span
-                              className={record.status === 'present' ? 'status-present' : 'status-absent'}
-                            >
-                              {record.status === 'present' ? 'Present' : 'Absent'}
-                            </span>
-                          </td>
-                          <td>{record.hours}</td>
-                        </tr>
-                      ))}
-                  </tbody>
+              <table>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Status</th>
+                    <th>Hours</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {attendanceRecords
+                    .sort((a, b) => a.student_id - b.student_id)
+                    .map((record) => (
+                      <tr key={record.id}>
+                        <td>{record.student_id}</td>
+                        <td>{record.student_name}</td>
+                        <td>
+                          <span
+                            className={record.status === 'present' ? 'status-present' : 'status-absent'}
+                          >
+                            {record.status === 'present' ? 'Present' : 'Absent'}
+                          </span>
+                        </td>
+                        <td>{record.hours}</td>
+                      </tr>
+                    ))}
+                </tbody>
 
 
-                </table>
+              </table>
 
-                <div style={{ marginTop: '15px' }}>
-                  <p>
-                    <strong>Summary:</strong> {attendanceRecords.filter(r => r.status === 'present').length} out of {attendanceRecords.length} students present
-                    ({Math.round((attendanceRecords.filter(r => r.status === 'present').length / attendanceRecords.length) * 100)}%)
-                  </p>
-                </div>
+              <div style={{ marginTop: '15px' }}>
+                <p>
+                  <strong>Summary:</strong> {attendanceRecords.filter(r => r.status === 'present').length} out of {attendanceRecords.length} students present
+                  ({Math.round((attendanceRecords.filter(r => r.status === 'present').length / attendanceRecords.length) * 100)}%)
+                </p>
+              </div>
             </div>
           )}
 
