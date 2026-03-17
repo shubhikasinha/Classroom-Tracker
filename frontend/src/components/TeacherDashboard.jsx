@@ -332,14 +332,14 @@ const TeacherDashboard = ({ user, onLogout, isEmbedded = false }) => {
         <button
           className={`ma ${viewMode === 'mark' ? 'btn-active' : ''}`}
           onClick={() => setViewMode('mark')}
-          style={{ marginRight: '10px', backgroundColor: viewMode === 'mark' ? '#640852' : '#95a5a6', borderRadius: '5px' }}
+          style={{ marginRight: '10px', backgroundColor: viewMode === 'mark' ? '#640852' : '#95a5a6', borderRadius: '5px', paddingBottom: '60px' }}
         >
           Mark Attendance
         </button>
         <button
           className={`ma ${viewMode === 'view' ? 'btn-active' : ''}`}
           onClick={() => setViewMode('view')}
-          style={{ backgroundColor: viewMode === 'view' ? '#640852' : '#95a5a6', borderRadius: '5px' }}
+          style={{ backgroundColor: viewMode === 'view' ? '#640852' : '#95a5a6', borderRadius: '5px', paddingBottom: '60px' }}
         >
           View Attendance
         </button>
