@@ -11,7 +11,7 @@ const StudentHub = ({ user, onLogout }) => {
             {/* Hub Header */}
             <div className="hub-header">
                 <div className="hub-header-left">
-                    <span className="hub-logo">CT</span>
+                    <img src="logo.png" alt="CT Logo" className="hub-logo-img" />
                     <div className="hub-user-info">
                         <span className="hub-user-name">Welcome, {user.name}</span>
                         <span className="hub-user-role">Student</span>

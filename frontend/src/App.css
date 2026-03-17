@@ -590,17 +590,11 @@ body {
   gap: 14px;
 }
 
-.hub-logo {
-  width: 34px;
-  height: 34px;
-  background: var(--primary);
-  color: white;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  font-size: 13px;
+.hub-logo-img {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+  margin-right: 4px;
 }
 
 .hub-user-info {
@@ -692,9 +686,9 @@ body {
 
 .dashboard-container {
   background: var(--white);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-  padding: 24px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+  padding: 32px;
   border: 1px solid var(--border);
 }
 
@@ -794,20 +788,22 @@ select.form-control {
 
 /* Tables */
 .table-container {
-  margin-top: 16px;
+  margin-top: 20px;
   overflow-x: auto;
-  border-radius: var(--radius);
+  border-radius: 12px;
   border: 1px solid var(--border);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
+  background: var(--white);
 }
 
 th,
 td {
-  padding: 12px 16px;
+  padding: 16px 20px;
   text-align: left;
   border-bottom: 1px solid var(--border-light);
   font-size: 14px;
@@ -815,15 +811,15 @@ td {
 
 th {
   background: var(--bg);
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text);
   font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.6px;
 }
 
 tr:hover {
-  background: rgba(0, 0, 0, 0.015);
+  background: #fdfafc;
 }
 
 tr:last-child td {
@@ -885,9 +881,9 @@ tr:last-child td {
 
 .assignments-container {
   background: var(--white);
-  border-radius: var(--radius-lg);
-  padding: 24px;
-  box-shadow: var(--shadow-sm);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: var(--shadow-md);
   border: 1px solid var(--border);
 }
 

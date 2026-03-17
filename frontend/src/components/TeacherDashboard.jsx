@@ -300,9 +300,12 @@ const TeacherDashboard = ({ user, onLogout, isEmbedded = false }) => {
     <div className="dashboard-container">
       {!isEmbedded && (
         <div className="dashboard-header">
-          <div className="user-info">
-            <span className="user-name">Welcome, {user.name}</span>
-            <span className="user-role">Teacher</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+            <img src="/logo.png" alt="CT Logo" className="hub-logo-img" />
+            <div className="user-info">
+              <span className="user-name">Welcome, {user.name}</span>
+              <span className="user-role">Teacher</span>
+            </div>
           </div>
           <div>
             {/* <button 
